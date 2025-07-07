@@ -17,16 +17,14 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 24
+    - run: npm install
     - uses: advanced-security/generate-sbom-action@v1
       id: gensbom
       env: 
           GITHUB_TOKEN: ${{ github.token }}
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 24
-#    - run: npm ci
-    - run: npm install
     - uses: actions/upload-artifact@v4
       with:
         name: sbom
