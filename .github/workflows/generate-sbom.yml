@@ -1,0 +1,2 @@
+- name: Generate SBOM
+  uses: advanced-security/generate-sbom-action@v1.1
